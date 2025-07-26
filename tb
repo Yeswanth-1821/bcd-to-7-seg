@@ -1,0 +1,15 @@
+// Code your testbench here
+// or browse Examples
+`timescale 1ns/1ps
+module tb_bcd_to_7seg;
+    reg [3:0] bcd;
+    wire [6:0] seg;
+
+    bcd_to_7seg uut(bcd, seg);
+
+    initial begin
+        $dumpfile("bcd7seg.vcd"); $dumpvars(0, tb_bcd_to_7seg);
+        for (bcd = 0; bcd < 10; bcd = bcd + 1) #10;
+        $finish;
+    end
+endmodule
